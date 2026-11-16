@@ -1,0 +1,467 @@
+{
+	"name": "Список событий 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "canOpenСейф",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 518655474439993
+		},
+		{
+			"eventType": "variable",
+			"name": "пароль",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 502838022401034
+		},
+		{
+			"eventType": "variable",
+			"name": "колличествоНажатий",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 385283250360033
+		},
+		{
+			"eventType": "variable",
+			"name": "g_IsUIOpen",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 633187120705289
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Клавиатура",
+					"sid": 950930247407279,
+					"parameters": {
+						"key": 69
+					}
+				},
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 630722500983069
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 444884244394194,
+					"parameters": {
+						"first-value": "distance(Игрок.x, Игрок.y, записочка.x, записочка.y)",
+						"comparison": 2,
+						"second-value": "40"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 918097247985560,
+					"parameters": {
+						"variable": "g_IsUIOpen",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Спрайт7",
+					"sid": 310832444180483,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 476379122976801,
+					"parameters": {
+						"variable": "canOpenСейф",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 272689167559917
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Клавиатура",
+					"sid": 116439303480327,
+					"parameters": {
+						"key": 69
+					}
+				},
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 380788701379035
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 783554656584516,
+					"parameters": {
+						"first-value": "distance(Игрок.x, Игрок.y, Спрайт.X, Спрайт.Y)",
+						"comparison": 3,
+						"second-value": "100"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 976717073543044,
+					"parameters": {
+						"variable": "canOpenСейф"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "ввестиПароль",
+					"sid": 125097771247423,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 207673715311917,
+					"parameters": {
+						"variable": "пароль",
+						"value": "ввестиПароль.Text"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 930620010741171,
+					"parameters": {
+						"variable": "g_IsUIOpen",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-focused",
+					"objectClass": "ввестиПароль",
+					"sid": 846154517936988
+				}
+			],
+			"sid": 310997717181110
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 570873929770439
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 884012542876721,
+					"parameters": {
+						"variable": "пароль",
+						"comparison": 0,
+						"value": "\"200433\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "ввестиПароль",
+					"sid": 858645162317097,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "записка",
+					"sid": 509499081525810
+				},
+				{
+					"id": "set-text",
+					"objectClass": "найтиЗаписку",
+					"sid": 168751872009599,
+					"parameters": {
+						"text": "\"Вы забрали то чо тцт было\""
+					}
+				}
+			],
+			"sid": 152205727820351
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Кнопка1",
+					"sid": 353206688329515
+				},
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 269588088210231
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 262478903688588,
+					"parameters": {
+						"variable": "canOpenСейф"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 778442616633707,
+					"parameters": {
+						"variable": "колличествоНажатий",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 975810790170759
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Кнопка2",
+					"sid": 995534783514292
+				},
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 350805441855570
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 665866503560574,
+					"parameters": {
+						"variable": "canOpenСейф"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 629193270562275,
+					"parameters": {
+						"variable": "колличествоНажатий",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 300740438639310
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Кнопка3",
+					"sid": 611823098294545
+				},
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 224565549828948
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 109755301919621,
+					"parameters": {
+						"variable": "canOpenСейф"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 142919716264120,
+					"parameters": {
+						"variable": "колличествоНажатий",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 470902881353023
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Клавиатура",
+					"sid": 446535223301892,
+					"parameters": {
+						"key": 39
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-mirrored",
+					"objectClass": "Игрок",
+					"sid": 523313464473189,
+					"parameters": {
+						"state": "not-mirrored"
+					}
+				}
+			],
+			"sid": 127192959399596
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Клавиатура",
+					"sid": 259318209054823,
+					"parameters": {
+						"key": 37
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-mirrored",
+					"objectClass": "Игрок",
+					"sid": 522062945877498,
+					"parameters": {
+						"state": "mirrored"
+					}
+				}
+			],
+			"sid": 472580965637676
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Клавиатура",
+					"sid": 583902671290072,
+					"parameters": {
+						"key": 27
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 297713070343800,
+					"parameters": {
+						"variable": "g_IsUIOpen",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 443359682628358,
+					"parameters": {
+						"variable": "g_IsUIOpen",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Спрайт7",
+					"sid": 947896460164420,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 990422376402788
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 120202132089980,
+					"parameters": {
+						"variable": "g_IsUIOpen",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "Игрок",
+					"sid": 564795415444032,
+					"behaviorType": "8Направлений",
+					"parameters": {
+						"input": "start-ignoring"
+					}
+				}
+			],
+			"sid": 164089794021518
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 688028853163583,
+					"parameters": {
+						"variable": "g_IsUIOpen",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "Игрок",
+					"sid": 158886837895795,
+					"behaviorType": "8Направлений",
+					"parameters": {
+						"input": "stop-ignoring"
+					}
+				}
+			],
+			"sid": 428516580391790
+		}
+	],
+	"sid": 940279760929953
+}

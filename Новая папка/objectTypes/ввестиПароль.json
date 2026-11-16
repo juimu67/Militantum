@@ -1,0 +1,9 @@
+{
+	"name": "ввестиПароль",
+	"plugin-id": "TextBox",
+	"sid": 399377513396027,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": []
+}
